@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Song That Reminds Me Of You - Happy Birthday</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-damask">
+
+  <div class="page-container">
+    <div class="floating-header">
+      <div class="progress-pill">Page 10 / 10</div>
+    </div>
+
+    <!-- Lilies and Wood Panel -->
+    <!-- <img src="assets/stickers/flower_pink.png" class="floral-corner bottom-left" alt="Flower accent"> -->
+    <div class="wood-panel"></div>
+
+    <div class="scrapbook-card" style="background: transparent; box-shadow: none;">
+      <h2 class="cursive-title white" style="font-size: clamp(2.4rem, 5vw, 3.4rem); text-align: center; margin-bottom: 25px;">
+        Song that reminds me of you
+      </h2>
+
+      <!-- Music Player Card -->
+      <div class="music-player-card">
+        <div class="player-video-preview" onclick="togglePlayMusic()" title="Click to play our song!">
+          <img src="assets/ourPictures/photo12.jpeg" alt="Our Song Video Player" style="filter: brightness(0.9) contrast(1.05); object-position: center 30%;">
+          <div class="player-play-overlay">
+            <div class="youtube-btn" id="playBtnIcon">▶</div>
+          </div>
+        </div>
+
+        <div class="player-controls">
+          <div class="player-track-info">
+            <div>
+              <div style="font-weight: 700; font-size: 1.1rem; color: #fff;">Pritam - I love you</div>
+              <div style="font-size: 0.85rem; color: #ffccd5; font-family: 'Special Elite', monospace;">Special Birthday Edition</div>
+            </div>
+            <div id="timeDisplay" style="font-family: 'Special Elite', monospace; font-size: 0.9rem; color: #ff8da1;">0:00 / 3:45</div>
+          </div>
+
+          <div class="player-time-bar" onclick="seekAudio(event)">
+            <div class="player-time-progress" id="timeProgress"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Red Envelope letter popup trigger -->
+      <div style="display: flex; justify-content: flex-end; width: 100%; max-width: 580px; margin-top: 15px;">
+        <div style="cursor: pointer; display: flex; align-items: center; gap: 8px; background: rgba(185, 43, 59, 0.3); padding: 8px 16px; border-radius: 20px; border: 1px solid rgba(255, 94, 120, 0.4);" onclick="openLetterModal()">
+          <span style="font-size: 1.4rem;">💌</span>
+          <span style="font-family: 'Caveat', cursive; font-size: 1.25rem; color: #ffe8ec;">Read Final Birthday Wish</span>
+        </div>
+      </div>
+
+      <!-- Action Buttons -->
+      <div style="display: flex; gap: 16px; margin-top: 25px; flex-wrap: wrap; justify-content: center;">
+        <button class="btn-vintage primary" onclick="celebrate()" style="font-size: 1.2rem; padding: 12px 32px;">
+          🎉 Celebrate Birthday! 🎉
+        </button>
+        <a href="index.html" class="btn-vintage" style="font-size: 1.1rem;">
+          ↺ Replay Journey
+        </a>
+      </div>
+    </div>
+
+    <!-- Bottom Navigation -->
+    <div class="bottom-nav">
+      <a href="memories.html" class="nav-link">← Back</a>
+      <div class="nav-dots">
+        <a href="index.html" class="nav-dot" title="Page 1"></a>
+        <a href="letter.html" class="nav-dot" title="Page 2"></a>
+        <a href="surprise.html" class="nav-dot" title="Page 3"></a>
+        <a href="question.html" class="nav-dot" title="Page 4"></a>
+        <a href="yay.html" class="nav-dot" title="Page 5"></a>
+        <a href="gifts.html" class="nav-dot" title="Page 6"></a>
+        <a href="scrapbook.html" class="nav-dot" title="Page 7"></a>
+        <a href="flowers.html" class="nav-dot" title="Page 8"></a>
+        <a href="memories.html" class="nav-dot" title="Page 9"></a>
+        <a href="song.html" class="nav-dot active" title="Page 10"></a>
+      </div>
+      <a href="index.html" class="nav-link">Home ↺</a>
+    </div>
+  </div>
+
+  <!-- Modal for Final Birthday Letter -->
+  <div class="modal-overlay" id="letterModal" onclick="closeLetterModal(event)">
+    <div class="modal-letter" onclick="event.stopPropagation();">
+      <button class="close-modal-btn" onclick="closeLetterModal()">×</button>
+      <div style="text-align: center; margin-bottom: 12px;">
+        <img src="assets/ourPictures/photo13.jpeg" alt="Us" style="width: 120px; height: 120px; object-fit: cover; border-radius: 50%; border: 3px solid #b92b3b; box-shadow: 0 4px 15px rgba(0,0,0,0.25);">
+      </div>
+      <h3 class="cursive-title" style="font-size: 2.2rem; text-align: center; margin-bottom: 15px;">Happy Birthday, Anushka Baby!</h3>
+      <p class="handwritten-text" style="font-size: 1.4rem; line-height: 1.6; color: #44181f; text-align: center;">
+        Every second with you is a gift I cherish with all my heart.<br>
+        Thank you for being my happiest thought, my biggest smile, and my forever favorite person.<br><br>
+        I hope this birthday brings you as much magic and endless happiness as you bring into my life every single day!
+      </p>
+      <div style="text-align: center; margin-top: 20px;">
+        <span class="cursive-title" style="font-size: 1.8rem; color: #8b1524;">With all my love, forever & always ❤️</span>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/music.js"></script>
+  <script src="js/confetti.js"></script>
+  <script>
+    function togglePlayMusic() {
+      if (window.BdayMusic) {
+        window.BdayMusic.toggle();
+        updateBtn();
+      }
+    }
+
+    function updateBtn() {
+      const audio = window.BdayMusic ? window.BdayMusic.getAudio() : null;
+      const btn = document.getElementById('playBtnIcon');
+      if (audio && !audio.paused) {
+        btn.textContent = '❚❚';
+      } else {
+        btn.textContent = '▶';
+      }
+    }
+
+    function celebrate() {
+      if (window.BdayMusic) window.BdayMusic.play();
+      launchConfetti(5000);
+      updateBtn();
+    }
+
+    function openLetterModal() {
+      document.getElementById('letterModal').classList.add('active');
+    }
+
+    function closeLetterModal() {
+      document.getElementById('letterModal').classList.remove('active');
+    }
+
+    // Audio progress updates
+    setInterval(() => {
+      const audio = window.BdayMusic ? window.BdayMusic.getAudio() : null;
+      if (audio && !isNaN(audio.duration) && audio.duration > 0) {
+        const percent = (audio.currentTime / audio.duration) * 100;
+        document.getElementById('timeProgress').style.width = percent + '%';
+        const curM = Math.floor(audio.currentTime / 60);
+        const curS = Math.floor(audio.currentTime % 60).toString().padStart(2, '0');
+        const durM = Math.floor(audio.duration / 60);
+        const durS = Math.floor(audio.duration % 60).toString().padStart(2, '0');
+        document.getElementById('timeDisplay').textContent = `${curM}:${curS} / ${durM}:${durS}`;
+      }
+      updateBtn();
+    }, 500);
+
+    function seekAudio(e) {
+      const audio = window.BdayMusic ? window.BdayMusic.getAudio() : null;
+      if (audio && audio.duration) {
+        const bar = e.currentTarget;
+        const rect = bar.getBoundingClientRect();
+        const clickX = e.clientX - rect.left;
+        const pct = clickX / rect.width;
+        audio.currentTime = pct * audio.duration;
+      }
+    }
+
+    // Auto trigger gentle confetti when reaching page 10
+    setTimeout(() => launchConfetti(2500), 400);
+  </script>
+</body>
+</html>

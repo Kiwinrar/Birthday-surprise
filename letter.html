@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dear My Love - Happy Birthday</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-damask">
+
+  <div class="page-container">
+    <div class="floating-header">
+      <div class="progress-pill">Page 2 / 10</div>
+    </div>
+
+    <!-- Red Lilies in corners -->
+    <!-- <img src="assets/stickers/lily_red.png" class="floral-corner top-left" alt="Floral decor">
+    <img src="assets/stickers/lily_red.png" class="floral-corner bottom-right" style="transform: rotate(180deg);" alt="Floral decor"> -->
+
+    <!-- Wooden Baseboard -->
+    <div class="wood-panel"></div>
+
+    <!-- Main Card Content -->
+    <div class="scrapbook-card" style="background: transparent; box-shadow: none;">
+      <div class="letter-envelope-container" onclick="toggleLetter()">
+        <div class="envelope-flap"></div>
+        <div class="letter-sheet" id="letterSheet">
+          <h2 class="cursive-title" style="font-size: 2.4rem; text-align: center; margin-bottom: 12px;">Dear, My Love</h2>
+          <p class="handwritten-text" style="font-size: 1.35rem; text-align: center; line-height: 1.6;">
+            Happy Birthday, my love my everything! 
+            I'm so grateful to love you and cherish every memory we share. 
+            May this year bring you all the magic and happiness you truly deserve!
+          </p>
+          <div style="text-align: right; margin-top: 15px;">
+            <span class="cursive-title" style="font-size: 1.8rem;">Forever Yours ❤️</span>
+            <div>
+              <span class="cursive-title" style="font-size: 1.8rem;">saksham</span>
+            </div>
+          </div>
+        </div>
+        <div class="envelope-pocket"></div>
+        <div class="envelope-base"></div>
+      </div>
+    </div>
+
+    <!-- Bottom Navigation -->
+    <div class="bottom-nav">
+      <a href="index.html" class="nav-link">← Back</a>
+      <div class="nav-dots">
+        <a href="index.html" class="nav-dot" title="Page 1"></a>
+        <a href="letter.html" class="nav-dot active" title="Page 2"></a>
+        <a href="surprise.html" class="nav-dot" title="Page 3"></a>
+        <a href="question.html" class="nav-dot" title="Page 4"></a>
+        <a href="yay.html" class="nav-dot" title="Page 5"></a>
+        <a href="gifts.html" class="nav-dot" title="Page 6"></a>
+        <a href="scrapbook.html" class="nav-dot" title="Page 7"></a>
+        <a href="flowers.html" class="nav-dot" title="Page 8"></a>
+        <a href="memories.html" class="nav-dot" title="Page 9"></a>
+        <a href="song.html" class="nav-dot" title="Page 10"></a>
+      </div>
+      <a href="surprise.html" class="nav-link">Next →</a>
+    </div>
+  </div>
+
+  <script src="js/music.js"></script>
+  <script>
+    function toggleLetter() {
+      const sheet = document.getElementById('letterSheet');
+      sheet.classList.toggle('active');
+    }
+  </script>
+</body>
+</html>

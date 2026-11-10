@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Scrapbook - Love of My Life</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .flash-overlay {
+      position: fixed;
+      inset: 0;
+      background: #ffffff;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.08s ease-out;
+      z-index: 999;
+    }
+  </style>
+</head>
+<body class="bg-gingham">
+
+  <div class="flash-overlay" id="cameraFlash"></div>
+
+  <div class="page-container">
+    <div class="floating-header">
+      <div class="progress-pill">Page 7 / 10</div>
+    </div>
+
+    <div class="scrapbook-card" style="background: rgba(255, 253, 250, 0.65); border: 1px solid #ebd8c8;">
+      <h2 class="cursive-title" style="font-size: clamp(2.4rem, 5vw, 3.4rem); color: #8b1524; margin-bottom: 20px;">
+        Love of my life
+      </h2>
+
+      <!-- Scrapbook layout container -->
+      <div class="scrapbook-layout" style="display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 25px;">
+        
+        <!-- Polaroid 1 (Our Picture) -->
+        <div class="polaroid" style="transform: rotate(-5deg); width: 175px;">
+          <img src="assets/ourPictures/photo4.jpeg" alt="Sweet Moments" style="height: 135px; object-fit: cover;">
+          <div class="polaroid-caption">Best moments ❤️</div>
+        </div>
+
+        <!-- Camera Center (Interactive Flash!) -->
+        <div style="cursor: pointer; text-align: center;" onclick="triggerFlash()" title="Click to snap a picture!">
+          <img src="assets/stickers/vintage_camera.png" alt="Vintage camera" style="width: 170px; filter: drop-shadow(0 10px 18px rgba(0,0,0,0.3));">
+          <div style="font-family: 'Special Elite', monospace; font-size: 0.85rem; color: #6a1a24; margin-top: 5px;">
+            [ Click to Flash 📸 ]
+          </div>
+        </div>
+
+        <!-- Polaroid 2 (Our Picture) -->
+        <div class="polaroid" style="transform: rotate(4deg); width: 175px;">
+          <img src="assets/ourPictures/photo5.jpeg" alt="Love us" style="height: 135px; object-fit: cover;">
+          <div class="polaroid-caption">Forever & Always ✨</div>
+        </div>
+
+        <!-- Polaroid 3 (Our Picture) -->
+        <div class="polaroid" style="transform: rotate(-2deg); width: 175px;">
+          <img src="assets/ourPictures/photo6.jpeg" alt="Together" style="height: 135px; object-fit: cover;">
+          <div class="polaroid-caption">My favorite smile 🥰</div>
+        </div>
+
+        <!-- Scrabble tiles: L O V E   Y O U -->
+        <div style="width: 100%; display: flex; justify-content: center; gap: 6px; margin-top: 15px;">
+          <div class="tile">L</div>
+          <div class="tile">O</div>
+          <div class="tile">V</div>
+          <div class="tile">E</div>
+          <div style="width: 12px;"></div>
+          <div class="tile">Y</div>
+          <div class="tile">O</div>
+          <div class="tile">U</div>
+        </div>
+      </div>
+
+      <div style="margin-top: 30px;">
+        <a href="flowers.html" class="btn-vintage primary">
+          Flowers for you →
+        </a>
+      </div>
+    </div>
+
+    <!-- Bottom Navigation -->
+    <div class="bottom-nav">
+      <a href="gifts.html" class="nav-link">← Back</a>
+      <div class="nav-dots">
+        <a href="index.html" class="nav-dot" title="Page 1"></a>
+        <a href="letter.html" class="nav-dot" title="Page 2"></a>
+        <a href="surprise.html" class="nav-dot" title="Page 3"></a>
+        <a href="question.html" class="nav-dot" title="Page 4"></a>
+        <a href="yay.html" class="nav-dot" title="Page 5"></a>
+        <a href="gifts.html" class="nav-dot" title="Page 6"></a>
+        <a href="scrapbook.html" class="nav-dot active" title="Page 7"></a>
+        <a href="flowers.html" class="nav-dot" title="Page 8"></a>
+        <a href="memories.html" class="nav-dot" title="Page 9"></a>
+        <a href="song.html" class="nav-dot" title="Page 10"></a>
+      </div>
+      <a href="flowers.html" class="nav-link">Next →</a>
+    </div>
+  </div>
+
+  <script src="js/music.js"></script>
+  <script>
+    function triggerFlash() {
+      const flash = document.getElementById('cameraFlash');
+      flash.style.opacity = '0.9';
+      setTimeout(() => {
+        flash.style.opacity = '0';
+      }, 120);
+    }
+  </script>
+</body>
+</html>

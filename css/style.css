@@ -1,0 +1,1024 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Special+Elite&display=swap');
+
+:root {
+  --primary-red: #8b1524;
+  --dark-red: #4d0b13;
+  --wine-red: #35040a;
+  --gingham-red: #b92b3b;
+  --cream: #fffdf9;
+  --kraft: #ebd8be;
+  --parchment: #f9f4ea;
+  --lace-color: rgba(255, 255, 255, 0.9);
+  --wood-dark: #2b140e;
+  --wood-light: #442217;
+  --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.35);
+  --shadow-card: 0 15px 35px rgba(0, 0, 0, 0.45);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  font-family: 'Playfair Display', serif;
+  color: #331a1a;
+  background-color: #1a0508;
+}
+
+/* Background Variations matching Template */
+.bg-gingham {
+  background-color: #fff9f6;
+  background-image: 
+    linear-gradient(90deg, rgba(185, 43, 59, 0.6) 50%, transparent 50%),
+    linear-gradient(rgba(185, 43, 59, 0.6) 50%, transparent 50%);
+  background-size: 38px 38px;
+}
+
+.bg-damask {
+  background: radial-gradient(circle at 50% 35%, #6a101b 0%, #450810 50%, #200206 100%);
+  position: relative;
+}
+
+.bg-damask::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+                    radial-gradient(rgba(0, 0, 0, 0.25) 1px, transparent 1px);
+  background-size: 24px 24px;
+  background-position: 0 0, 12px 12px;
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.bg-split {
+  background: linear-gradient(90deg, #450810 0%, #450810 38%, #fff9f6 38.1%, #fff9f6 100%);
+  position: relative;
+}
+
+.bg-split::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 62%;
+  background-image: 
+    linear-gradient(90deg, rgba(185, 43, 59, 0.6) 50%, transparent 50%),
+    linear-gradient(rgba(185, 43, 59, 0.6) 50%, transparent 50%);
+  background-size: 36px 36px;
+  pointer-events: none;
+}
+
+/* Wooden Baseboard Panel */
+.wood-panel {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 22%;
+  background: linear-gradient(180deg, #422216 0%, #261109 100%);
+  border-top: 3px solid #5a301e;
+  box-shadow: inset 0 8px 12px rgba(0,0,0,0.5);
+  display: flex;
+  background-size: 100% 100%;
+}
+
+.wood-panel::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(90deg, 
+    transparent 0, 
+    transparent 36px, 
+    rgba(0, 0, 0, 0.35) 37px, 
+    rgba(255, 255, 255, 0.04) 38px);
+}
+
+/* Page Container */
+.page-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Main Display Card - 16:9 scrapbook frame */
+.scrapbook-card {
+  width: 100%;
+  max-width: 900px;
+  min-height: 520px;
+  border-radius: 12px;
+  box-shadow: var(--shadow-card);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 30px;
+  transition: transform 0.3s ease;
+}
+
+/* Decorative Lace Banners */
+.lace-trim-top, .lace-trim-bottom {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 26px;
+  background-image: radial-gradient(circle at 10px 0, transparent 9px, rgba(255,255,255,0.92) 10px);
+  background-size: 20px 20px;
+  z-index: 5;
+  filter: drop-shadow(0 2px 3px rgba(0,0,0,0.15));
+}
+.lace-trim-top { top: 0; }
+.lace-trim-bottom { 
+  bottom: 0; 
+  transform: rotate(180deg);
+}
+
+/* Floral Accents */
+.floral-corner {
+  position: absolute;
+  pointer-events: none;
+  z-index: 8;
+  filter: drop-shadow(2px 6px 12px rgba(0,0,0,0.4));
+  transition: transform 0.5s ease;
+}
+.floral-corner.top-left { top: -10px; left: -10px; width: 140px; }
+.floral-corner.top-right { top: -10px; right: -10px; width: 130px; }
+.floral-corner.bottom-left { bottom: -10px; left: -10px; width: 130px; }
+.floral-corner.bottom-right { bottom: -10px; right: -10px; width: 150px; }
+
+/* Scalloped Vintage Paper Frame */
+.scallop-frame {
+  background: #fdfaf3;
+  border: 1px solid #ebd9c5;
+  border-radius: 6px;
+  padding: 35px 45px;
+  box-shadow: 
+    0 0 0 10px #fdfaf3,
+    0 0 0 12px #e3cbb4,
+    0 12px 30px rgba(0,0,0,0.22);
+  position: relative;
+  text-align: center;
+  max-width: 620px;
+  width: 90%;
+}
+
+.scallop-frame::before {
+  content: "";
+  position: absolute;
+  inset: 8px;
+  border: 2px dashed #b92b3b;
+  border-radius: 4px;
+  pointer-events: none;
+  opacity: 0.65;
+}
+
+/* Fonts and Titles */
+.cursive-title {
+  font-family: 'Great Vibes', cursive;
+  color: var(--primary-red);
+  line-height: 1.2;
+  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.4);
+}
+
+.cursive-title.hero {
+  font-size: clamp(2.8rem, 6vw, 4.2rem);
+  margin-bottom: 8px;
+}
+
+.cursive-title.sub {
+  font-size: clamp(2.2rem, 5vw, 3.4rem);
+  margin-bottom: 12px;
+}
+
+.cursive-title.white {
+  color: #fff6ee;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+}
+
+.vintage-header {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-weight: 600;
+  color: #f7e6d5;
+  text-shadow: 0 2px 5px rgba(0,0,0,0.5);
+  font-size: clamp(1.4rem, 3.5vw, 2.2rem);
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.handwritten-text {
+  font-family: 'Caveat', cursive;
+  font-size: 1.5rem;
+  line-height: 1.4;
+  color: #3b2020;
+}
+
+.typewriter-text {
+  font-family: 'Special Elite', monospace;
+  letter-spacing: 1px;
+}
+
+/* Vintage Buttons */
+.btn-vintage {
+  display: inline-block;
+  padding: 12px 34px;
+  background: linear-gradient(180deg, #fefbf4 0%, #eedbc4 100%);
+  border: 2px solid #b8987b;
+  border-radius: 6px;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #5c1822;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.18), inset 0 1px 0 rgba(255,255,255,0.8);
+  text-decoration: none;
+  transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  user-select: none;
+}
+
+.btn-vintage:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 8px 18px rgba(0,0,0,0.25);
+  background: linear-gradient(180deg, #ffffff 0%, #f4e3cf 100%);
+  color: #8b1524;
+}
+
+.btn-vintage:active {
+  transform: translateY(1px);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.btn-vintage.primary {
+  background: linear-gradient(180deg, #9f1c2d 0%, #6e0c19 100%);
+  border-color: #520711;
+  color: #fff6ee;
+  box-shadow: 0 4px 12px rgba(110, 12, 25, 0.4);
+}
+
+.btn-vintage.primary:hover {
+  background: linear-gradient(180deg, #b52236 0%, #7e101e 100%);
+  color: #ffffff;
+}
+
+/* Top Floating Bar: Audio toggle & Progress */
+.floating-header {
+  position: fixed;
+  top: 16px;
+  left: 20px;
+  right: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 100;
+  pointer-events: none;
+}
+
+.progress-pill, .music-pill {
+  pointer-events: auto;
+  background: rgba(35, 5, 10, 0.75);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 230, 210, 0.25);
+  border-radius: 30px;
+  padding: 8px 18px;
+  color: #f7eedf;
+  font-size: 0.9rem;
+  font-family: 'Special Elite', monospace;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.music-pill {
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.music-pill:hover {
+  background: rgba(85, 15, 25, 0.9);
+  border-color: rgba(255, 220, 180, 0.5);
+  transform: scale(1.05);
+}
+
+.vinyl-disc {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #ffdede 20%, #111 22%, #333 45%, #111 48%, #444 80%, #000 100%);
+  border: 1px solid #777;
+  display: inline-block;
+  animation: spin 3s linear infinite;
+}
+
+.vinyl-disc.paused {
+  animation-play-state: paused;
+}
+
+@keyframes spin {
+  100% { transform: rotate(360deg); }
+}
+
+/* Bottom Navigation Controls */
+.bottom-nav {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  background: rgba(35, 5, 10, 0.85);
+  backdrop-filter: blur(10px);
+  padding: 8px 18px;
+  border-radius: 40px;
+  border: 1px solid rgba(255, 230, 200, 0.25);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+}
+
+.nav-link {
+  color: #fcefdc;
+  text-decoration: none;
+  font-family: 'Playfair Display', serif;
+  font-size: 0.95rem;
+  padding: 6px 14px;
+  border-radius: 20px;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.nav-link:hover {
+  background: rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+}
+
+.nav-dots {
+  display: flex;
+  gap: 6px;
+}
+
+.nav-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.nav-dot.active {
+  background: #ff5e78;
+  transform: scale(1.3);
+  box-shadow: 0 0 8px #ff5e78;
+}
+
+/* --- PAGE SPECIFIC ELEMENTS --- */
+
+/* Page 1: Envelope & Card Cover */
+.envelope-cover {
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+.envelope-cover:hover {
+  transform: scale(1.02);
+}
+
+/* Page 2: Love Letter emerging from Envelope */
+.letter-envelope-container {
+  position: relative;
+  width: 480px;
+  max-width: 95%;
+  height: 380px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  margin-top: 20px;
+}
+
+.envelope-base {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 220px;
+  background: #fbf7ee;
+  border-radius: 6px;
+  box-shadow: 0 12px 28px rgba(0,0,0,0.4);
+  border: 1px solid #ebd9c5;
+  z-index: 2;
+  overflow: hidden;
+}
+
+.envelope-pocket {
+  position: absolute;
+  bottom: 0;
+  width: 0;
+  height: 0;
+  border-left: 240px solid #f2e7d3;
+  border-right: 240px solid #f2e7d3;
+  border-top: 130px solid transparent;
+  z-index: 4;
+}
+
+.envelope-flap {
+  position: absolute;
+  top: 160px;
+  width: 0;
+  height: 0;
+  border-left: 240px solid transparent;
+  border-right: 240px solid transparent;
+  border-top: 140px solid #ead6be;
+  z-index: 1;
+  transform-origin: top;
+  transition: transform 0.6s ease;
+}
+
+.letter-sheet {
+  position: absolute;
+  width: 88%;
+  background: #ffffff;
+  padding: 30px 25px;
+  border-radius: 6px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+  border: 1px solid #e8dbcc;
+  z-index: 3;
+  bottom: 30px;
+  transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.letter-envelope-container:hover .letter-sheet,
+.letter-sheet.active {
+  transform: translateY(-90px);
+}
+
+/* Page 3: Surprise Postcard & Locket */
+.surprise-content {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  width: 100%;
+}
+
+.locket-wrapper {
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.locket-wrapper:hover {
+  transform: scale(1.06) rotate(-3deg);
+}
+
+.vintage-postcard {
+  background: #fdfaf3;
+  width: 380px;
+  max-width: 90%;
+  padding: 24px;
+  border-radius: 4px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+  position: relative;
+  border: 1px solid #ebd9c5;
+}
+
+.postcard-divider {
+  position: absolute;
+  left: 60%;
+  top: 15%;
+  bottom: 15%;
+  width: 1px;
+  background: #d4c2b0;
+}
+
+.postage-stamp {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 50px;
+  height: 60px;
+  border: 2px dashed #b92b3b;
+  padding: 3px;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Page 4: Hanging Twine Note & Runaway Buttons */
+.hanging-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hanging-string {
+  width: 2px;
+  height: 45px;
+  background: #c29d6d;
+  box-shadow: 1px 2px 4px rgba(0,0,0,0.3);
+}
+
+.ribbon-bow {
+  font-size: 2.2rem;
+  line-height: 1;
+  color: #b58c58;
+  margin-top: -12px;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+}
+
+.kraft-tag {
+  background: #f5ecd9;
+  border: 2px solid #ceb494;
+  border-radius: 8px;
+  padding: 40px 50px;
+  text-align: center;
+  box-shadow: 0 14px 30px rgba(0,0,0,0.35);
+  position: relative;
+  animation: sway 4s ease-in-out infinite alternate;
+  transform-origin: top center;
+}
+
+@keyframes sway {
+  0% { transform: rotate(-2deg); }
+  100% { transform: rotate(2deg); }
+}
+
+.button-options {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  margin-top: 30px;
+  position: relative;
+  min-height: 60px;
+}
+
+.btn-choice {
+  padding: 10px 38px;
+  background: #fffaf1;
+  border: 2px solid #bba183;
+  border-radius: 6px;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #4a121a;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+  transition: all 0.2s ease;
+  user-select: none;
+}
+
+.btn-choice:hover {
+  background: #9f1c2d;
+  color: #ffffff;
+  border-color: #6a101b;
+}
+
+#btn-no {
+  transition: all 0.15s ease-out;
+}
+
+/* Page 5: Cuddling Bears Frame */
+.bears-card {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.bears-frame {
+  background: #fffdfa;
+  border-radius: 12px;
+  padding: 24px 35px;
+  box-shadow: 0 0 0 12px #fffdfa, 0 0 0 15px #e5ceb4, 0 14px 32px rgba(0,0,0,0.25);
+  margin-bottom: 30px;
+  position: relative;
+  max-width: 650px;
+  width: 95%;
+}
+
+.bears-img-wrap {
+  position: relative;
+  border-radius: 8px;
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.bears-img {
+  width: 175px;
+  max-width: 42vw;
+  height: auto;
+  border-radius: 8px;
+  display: block;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.bears-img:hover {
+  transform: scale(1.06);
+}
+
+/* Page 6: Gift Box Hub (4 Hearts) */
+.hearts-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px 40px;
+  margin: 30px auto;
+  max-width: 520px;
+}
+
+.heart-gift-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.heart-gift-card:hover {
+  transform: translateY(-8px) scale(1.06);
+}
+
+.heart-stamp-shape {
+  width: 110px;
+  height: 110px;
+  background: #fffdf9;
+  border: 3px dashed #b92b3b;
+  border-radius: 50% 50% 45% 45%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  overflow: hidden;
+  padding: 10px;
+  position: relative;
+}
+
+.heart-gift-label {
+  margin-top: 10px;
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-size: 1rem;
+  color: #fff9f0;
+  text-shadow: 0 2px 5px rgba(0,0,0,0.5);
+  background: rgba(139, 21, 36, 0.85);
+  padding: 3px 12px;
+  border-radius: 12px;
+}
+
+/* Page 7: Scrapbook Collage */
+.scrapbook-layout {
+  position: relative;
+  width: 100%;
+  max-width: 820px;
+  min-height: 480px;
+}
+
+.polaroid {
+  background: #ffffff;
+  padding: 10px 10px 28px 10px;
+  border-radius: 3px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+  position: absolute;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.polaroid:hover {
+  transform: scale(1.1) rotate(0deg) !important;
+  z-index: 20 !important;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.45);
+}
+
+.polaroid img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 2px;
+}
+
+.polaroid-caption {
+  font-family: 'Caveat', cursive;
+  font-size: 1.1rem;
+  text-align: center;
+  margin-top: 8px;
+  color: #331a1a;
+}
+
+.scrabble-tiles {
+  display: flex;
+  gap: 5px;
+  position: absolute;
+  left: 30px;
+  bottom: 40px;
+}
+
+.tile {
+  background: #fdf5e6;
+  border: 1px solid #c9b49b;
+  width: 34px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Special Elite', monospace;
+  font-weight: 700;
+  font-size: 1.3rem;
+  color: #4a1a20;
+  box-shadow: 1px 2px 5px rgba(0,0,0,0.25);
+  border-radius: 3px;
+}
+
+/* Page 8: Rose Bouquet & Compliment Bubbles */
+.bouquet-scene {
+  position: relative;
+  width: 100%;
+  max-width: 760px;
+  min-height: 420px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.bouquet-center {
+  position: relative;
+  z-index: 5;
+  filter: drop-shadow(0 15px 25px rgba(0,0,0,0.4));
+  transition: transform 0.3s ease;
+}
+
+.bouquet-center:hover {
+  transform: scale(1.04);
+}
+
+.compliment-pill {
+  position: absolute;
+  background: #ffffff;
+  border: 1.5px solid #e0c8b0;
+  border-radius: 20px;
+  padding: 8px 18px;
+  font-family: 'Caveat', cursive;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #4a151e;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  cursor: pointer;
+  transition: all 0.25s ease;
+  user-select: none;
+  z-index: 8;
+}
+
+.compliment-pill:hover {
+  transform: scale(1.1);
+  background: #fff4f6;
+  border-color: #ff5e78;
+  color: #8b1524;
+  box-shadow: 0 8px 18px rgba(255, 94, 120, 0.35);
+}
+
+/* Page 9: Samsung Camera & Film Strip */
+.memories-scene {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+  gap: 20px;
+}
+
+.turntable-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.vinyl-large {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #fcdada 18%, #111 20%, #292929 45%, #151515 48%, #333 80%, #000 100%);
+  border: 3px solid #222;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+  animation: spin 6s linear infinite;
+  cursor: pointer;
+}
+
+.film-strip {
+  background: #111;
+  padding: 10px;
+  border-radius: 4px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  border-left: 6px dashed #fff;
+  border-right: 6px dashed #fff;
+}
+
+.film-frame {
+  width: 120px;
+  height: 90px;
+  overflow: hidden;
+  border-radius: 2px;
+}
+
+.film-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: contrast(1.1) sepia(0.15);
+}
+
+/* Page 10: Retro Song Player & Envelope Modal */
+.music-player-card {
+  background: #1a080c;
+  border: 1px solid #5a1e27;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 580px;
+  padding: 24px;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+  color: #fff6ee;
+}
+
+.player-video-preview {
+  width: 100%;
+  height: 240px;
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+  background: #000;
+  margin-bottom: 18px;
+}
+
+.player-video-preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.player-play-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.35);
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.player-play-overlay:hover {
+  background: rgba(0, 0, 0, 0.15);
+}
+
+.youtube-btn {
+  width: 60px;
+  height: 42px;
+  background: #ff0000;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 1.5rem;
+  box-shadow: 0 4px 15px rgba(255, 0, 0, 0.5);
+}
+
+.player-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.player-track-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.player-time-bar {
+  width: 100%;
+  height: 6px;
+  background: #3a151b;
+  border-radius: 3px;
+  overflow: hidden;
+  cursor: pointer;
+  position: relative;
+}
+
+.player-time-progress {
+  width: 0%;
+  height: 100%;
+  background: linear-gradient(90deg, #ff5e78, #ff8da1);
+  transition: width 0.1s linear;
+}
+
+/* Modal Popup for Closing Love Letter */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(6px);
+  z-index: 500;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.modal-overlay.active {
+  display: flex;
+}
+
+.modal-letter {
+  background: #fdfaf3;
+  max-width: 500px;
+  width: 100%;
+  padding: 35px 30px;
+  border-radius: 8px;
+  border: 2px dashed #b92b3b;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+  position: relative;
+  animation: popIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes popIn {
+  from { transform: scale(0.85); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.close-modal-btn {
+  position: absolute;
+  top: 12px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 1.6rem;
+  color: #6a101b;
+  cursor: pointer;
+}
+
+/* Confetti Canvas */
+#confetti-canvas {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 300;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .page-container {
+    padding: 60px 12px 70px 12px;
+  }
+  .scrapbook-card {
+    min-height: auto;
+    padding: 30px 16px;
+  }
+  .scallop-frame {
+    padding: 25px 20px;
+  }
+  .hearts-grid {
+    gap: 16px;
+  }
+  .compliment-pill {
+    position: static !important;
+    margin: 6px;
+    display: inline-block;
+  }
+  .bouquet-scene {
+    flex-direction: column;
+  }
+  .memories-scene {
+    flex-direction: column;
+  }
+  .bottom-nav {
+    bottom: 10px;
+    padding: 6px 14px;
+    gap: 10px;
+  }
+  .nav-dots {
+    display: none;
+  }
+}

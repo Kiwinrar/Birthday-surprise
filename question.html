@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Would You Like To See It?</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-damask">
+
+  <div class="page-container">
+    <div class="floating-header">
+      <div class="progress-pill">Page 4 / 10</div>
+    </div>
+
+    <!-- Soft Pink Watercolor Flowers -->
+    <!-- <img src="assets/stickers/flower_pink.png" class="floral-corner top-left" alt="Pink flower">
+    <img src="assets/stickers/flower_pink.png" class="floral-corner bottom-right" style="transform: rotate(180deg);" alt="Pink flower"> -->
+
+    <div class="scrapbook-card" style="background: transparent; box-shadow: none;">
+      <div class="hanging-wrapper">
+        <div class="hanging-string"></div>
+        <div class="ribbon-bow">🎀</div>
+        
+        <div class="kraft-tag">
+          <h2 class="cursive-title" style="font-size: clamp(2.2rem, 5vw, 3.2rem); margin-bottom: 20px; color: #5a1520;">
+            Would You Like To See It ?
+          </h2>
+
+          <div class="button-options" id="choiceContainer">
+            <button class="btn-choice" id="btn-yes" onclick="chooseYes()">
+              Yes
+            </button>
+            <button class="btn-choice" id="btn-no" onmouseover="dodgeNo()" onclick="dodgeNo()">
+              No
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom Navigation -->
+    <div class="bottom-nav">
+      <a href="surprise.html" class="nav-link">← Back</a>
+      <div class="nav-dots">
+        <a href="index.html" class="nav-dot" title="Page 1"></a>
+        <a href="letter.html" class="nav-dot" title="Page 2"></a>
+        <a href="surprise.html" class="nav-dot" title="Page 3"></a>
+        <a href="question.html" class="nav-dot active" title="Page 4"></a>
+        <a href="yay.html" class="nav-dot" title="Page 5"></a>
+        <a href="gifts.html" class="nav-dot" title="Page 6"></a>
+        <a href="scrapbook.html" class="nav-dot" title="Page 7"></a>
+        <a href="flowers.html" class="nav-dot" title="Page 8"></a>
+        <a href="memories.html" class="nav-dot" title="Page 9"></a>
+        <a href="song.html" class="nav-dot" title="Page 10"></a>
+      </div>
+      <a href="yay.html" class="nav-link">Next →</a>
+    </div>
+  </div>
+
+  <script src="js/music.js"></script>
+  <script>
+    let dodgeCount = 0;
+    const funnyTexts = ["No", "Are you sure?", "Wait, what?!", "Try again 😜", "You can't say no!", "Click Yes ❤️"];
+
+    function dodgeNo() {
+      const btnNo = document.getElementById('btn-no');
+      dodgeCount++;
+      btnNo.textContent = funnyTexts[Math.min(dodgeCount, funnyTexts.length - 1)];
+
+      const maxOffset = 110;
+      const randomX = (Math.random() - 0.5) * (maxOffset * 2);
+      const randomY = (Math.random() - 0.5) * (maxOffset * 1.5);
+      
+      btnNo.style.transform = `translate(${randomX}px, ${randomY}px)`;
+
+      if (dodgeCount >= 5) {
+        // Change to Yes
+        setTimeout(() => {
+          btnNo.textContent = "Yes ❤️";
+          btnNo.onclick = chooseYes;
+        }, 500);
+      }
+    }
+
+    function chooseYes() {
+      window.location.href = 'yay.html';
+    }
+  </script>
+</body>
+</html>

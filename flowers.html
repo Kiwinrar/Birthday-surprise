@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flowers For You, My Sweetheart</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .sparkle-heart {
+      position: absolute;
+      pointer-events: none;
+      font-size: 1.5rem;
+      animation: floatUp 1s ease-out forwards;
+      z-index: 1000;
+    }
+    @keyframes floatUp {
+      0% { transform: translateY(0) scale(0.8); opacity: 1; }
+      100% { transform: translateY(-60px) scale(1.4); opacity: 0; }
+    }
+  </style>
+</head>
+<body class="bg-damask">
+
+  <div class="page-container">
+    <div class="floating-header">
+      <div class="progress-pill">Page 8 / 10</div>
+    </div>
+
+    <!-- Soft Pink Watercolor Flowers -->
+    <img src="assets/stickers/flower_pink.png" class="floral-corner top-left" alt="Pink flower">
+    <img src="assets/stickers/flower_pink.png" class="floral-corner bottom-right" style="transform: rotate(180deg);" alt="Pink flower">
+
+    <div class="scrapbook-card" style="background: transparent; box-shadow: none;">
+      <h2 class="cursive-title white" style="font-size: clamp(2.2rem, 5vw, 3.2rem); text-align: center; margin-bottom: 25px;">
+        Flowers For You, My Sweetheart
+      </h2>
+
+      <!-- Bouquet Scene -->
+      <div class="bouquet-scene" id="bouquetScene">
+        <div class="bouquet-center">
+          <img src="assets/stickers/bouquet.png" alt="Rose Bouquet in hands" style="max-width: 440px; width: 90%; display: block; margin: 0 auto;">
+        </div>
+
+        <!-- Floating Compliment Tags -->
+        <div class="compliment-pill" style="top: 8%; left: 10%;" onclick="popHeart(event)">
+          Thank You For Loving Me 💕
+        </div>
+
+        <div class="compliment-pill" style="top: 15%; right: 12%;" onclick="popHeart(event)">
+          I Love You So Much 💖
+        </div>
+
+        <div class="compliment-pill" style="bottom: 18%; left: 8%;" onclick="popHeart(event)">
+          no mattered when it's you ✨
+        </div>
+
+        <div class="compliment-pill" style="bottom: 22%; right: 10%;" onclick="popHeart(event)">
+          my favorite thing to do is make you smile 🥰
+        </div>
+
+        <div class="compliment-pill" style="top: 48%; right: 4%;" onclick="popHeart(event)">
+          You deserve to be celebrated 👑
+        </div>
+      </div>
+
+      <div style="margin-top: 30px;">
+        <a href="memories.html" class="btn-vintage primary">
+          Special memories →
+        </a>
+      </div>
+    </div>
+
+    <!-- Bottom Navigation -->
+    <div class="bottom-nav">
+      <a href="scrapbook.html" class="nav-link">← Back</a>
+      <div class="nav-dots">
+        <a href="index.html" class="nav-dot" title="Page 1"></a>
+        <a href="letter.html" class="nav-dot" title="Page 2"></a>
+        <a href="surprise.html" class="nav-dot" title="Page 3"></a>
+        <a href="question.html" class="nav-dot" title="Page 4"></a>
+        <a href="yay.html" class="nav-dot" title="Page 5"></a>
+        <a href="gifts.html" class="nav-dot" title="Page 6"></a>
+        <a href="scrapbook.html" class="nav-dot" title="Page 7"></a>
+        <a href="flowers.html" class="nav-dot active" title="Page 8"></a>
+        <a href="memories.html" class="nav-dot" title="Page 9"></a>
+        <a href="song.html" class="nav-dot" title="Page 10"></a>
+      </div>
+      <a href="memories.html" class="nav-link">Next →</a>
+    </div>
+  </div>
+
+  <script src="js/music.js"></script>
+  <script>
+    function popHeart(e) {
+      const heart = document.createElement('div');
+      heart.className = 'sparkle-heart';
+      const emojis = ['💖', '🌸', '✨', '💐', '❤️'];
+      heart.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+      heart.style.left = e.pageX + 'px';
+      heart.style.top = e.pageY + 'px';
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 1000);
+    }
+  </script>
+</body>
+</html>

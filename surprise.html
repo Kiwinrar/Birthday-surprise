@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>I Have a Little Surprise For You</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-damask">
+
+  <div class="page-container">
+    <div class="floating-header">
+      <div class="progress-pill">Page 3 / 10</div>
+    </div>
+
+    <!-- Red Lilies in corners -->
+    <!-- <img src="assets/stickers/lily_red.png" class="floral-corner top-left" alt="Floral decor">
+    <img src="assets/stickers/lily_red.png" class="floral-corner top-right" style="transform: scaleX(-1);" alt="Floral decor"> -->
+
+    <div class="scrapbook-card" style="background: transparent; box-shadow: none;">
+      <h2 class="cursive-title white" style="font-size: clamp(2.2rem, 5vw, 3.2rem); text-align: center; margin-bottom: 25px;">
+        I have a Little Surprise For You
+      </h2>
+
+      <div class="surprise-content">
+        <!-- Heart Locket with Our Photos -->
+        <div class="locket-wrapper" title="Click to view our keepsake!" onclick="openLocketModal()">
+          <div style="position: relative; display: inline-block;">
+            <img src="assets/stickers/our_locket.png" alt="Our Heart Locket" style="width: 175px; filter: drop-shadow(0 8px 18px rgba(0,0,0,0.5));">
+            <div style="position: absolute; bottom: -8px; left: 50%; transform: translateX(-50%); background: rgba(0,0,0,0.6); color: #fff; font-size: 0.75rem; padding: 2px 8px; border-radius: 10px; font-family: 'Special Elite', monospace; white-space: nowrap;">
+              Tap to open 🗝️
+            </div>
+          </div>
+        </div>
+
+        <!-- Vintage Postcard -->
+        <div class="vintage-postcard">
+          <div class="postage-stamp">
+            <span style="font-size: 1.5rem;">💌</span>
+          </div>
+          <div style="width: 70%; padding-top: 10px;">
+            <p class="handwritten-text" style="font-size: 1.6rem; line-height: 1.5; color: #441818;">
+              you gave<br>
+              me all the<br>
+              love i missed<br>
+              in this world ❤️
+            </p>
+          </div>
+          <div class="postcard-divider"></div>
+          <div style="position: absolute; right: 15px; bottom: 15px;">
+            <div style="border: 2px dashed #b92b3b; padding: 4px 8px; border-radius: 4px; text-align: center; background: #fff;">
+              <span class="typewriter-text" style="font-size: 0.75rem; color: #b92b3b;">POST 2026</span>
+              <div style="font-size: 0.9rem;">❤️</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top: 35px;">
+        <a href="question.html" class="btn-vintage primary">
+          See the surprise →
+        </a>
+      </div>
+    </div>
+
+    <!-- Bottom Navigation -->
+    <div class="bottom-nav">
+      <a href="letter.html" class="nav-link">← Back</a>
+      <div class="nav-dots">
+        <a href="index.html" class="nav-dot" title="Page 1"></a>
+        <a href="letter.html" class="nav-dot" title="Page 2"></a>
+        <a href="surprise.html" class="nav-dot active" title="Page 3"></a>
+        <a href="question.html" class="nav-dot" title="Page 4"></a>
+        <a href="yay.html" class="nav-dot" title="Page 5"></a>
+        <a href="gifts.html" class="nav-dot" title="Page 6"></a>
+        <a href="scrapbook.html" class="nav-dot" title="Page 7"></a>
+        <a href="flowers.html" class="nav-dot" title="Page 8"></a>
+        <a href="memories.html" class="nav-dot" title="Page 9"></a>
+        <a href="song.html" class="nav-dot" title="Page 10"></a>
+      </div>
+      <a href="question.html" class="nav-link">Next →</a>
+    </div>
+  </div>
+
+  <!-- Modal for Locket Zoom -->
+  <div class="modal-overlay" id="locketModal" onclick="closeLocketModal()">
+    <div class="modal-letter" style="max-width: 480px; text-align: center;" onclick="event.stopPropagation();">
+      <button class="close-modal-btn" onclick="closeLocketModal()">×</button>
+      <h3 class="cursive-title" style="font-size: 2rem; color: #8b1524; margin-bottom: 12px;">Kept In My Heart</h3>
+      <div style="display: flex; gap: 12px; justify-content: center; margin: 15px 0;">
+        <img src="assets/ourPictures/photo1.jpeg" alt="Us" style="width: 48%; height: 200px; object-fit: cover; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.25);">
+        <img src="assets/ourPictures/photo2.jpeg" alt="Us" style="width: 48%; height: 200px; object-fit: cover; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.25);">
+      </div>
+      <p class="handwritten-text" style="font-size: 1.35rem; color: #3b181e;">
+        "Every heartbeat whispers your name..."
+      </p>
+    </div>
+  </div>
+
+  <script src="js/music.js"></script>
+  <script>
+    function openLocketModal() {
+      document.getElementById('locketModal').classList.add('active');
+    }
+    function closeLocketModal() {
+      document.getElementById('locketModal').classList.remove('active');
+    }
+  </script>
+</body>
+</html>
