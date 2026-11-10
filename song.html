@@ -82,30 +82,41 @@
       </div>
       <a href="index.html" class="nav-link">Home ↺</a>
     </div>
-  </div>
 
-  <!-- Modal for Final Birthday Letter -->
-  <div class="modal-overlay" id="letterModal" onclick="closeLetterModal(event)">
-    <div class="modal-letter" onclick="event.stopPropagation();">
-      <button class="close-modal-btn" onclick="closeLetterModal()">×</button>
-      <div style="text-align: center; margin-bottom: 12px;">
-        <img src="assets/ourPictures/photo13.jpeg" alt="Us" style="width: 120px; height: 120px; object-fit: cover; border-radius: 50%; border: 3px solid #b92b3b; box-shadow: 0 4px 15px rgba(0,0,0,0.25);">
-      </div>
-      <h3 class="cursive-title" style="font-size: 2.2rem; text-align: center; margin-bottom: 15px;">Happy Birthday, Anushka Baby!</h3>
-      <p class="handwritten-text" style="font-size: 1.4rem; line-height: 1.6; color: #44181f; text-align: center;">
-        Every second with you is a gift I cherish with all my heart.<br>
-        Thank you for being my happiest thought, my biggest smile, and my forever favorite person.<br><br>
-        I hope this birthday brings you as much magic and endless happiness as you bring into my life every single day!
-      </p>
-      <div style="text-align: center; margin-top: 20px;">
-        <span class="cursive-title" style="font-size: 1.8rem; color: #8b1524;">With all my love, forever & always ❤️</span>
+    <!-- Modal for Final Birthday Letter (Inside page-container) -->
+    <div class="modal-overlay" id="letterModal" onclick="closeLetterModal(event)">
+      <div class="modal-letter" onclick="event.stopPropagation();">
+        <button class="close-modal-btn" onclick="closeLetterModal()">×</button>
+        <div style="text-align: center; margin-bottom: 12px;">
+          <img src="assets/ourPictures/photo13.jpeg" alt="Us" style="width: 120px; height: 120px; object-fit: cover; border-radius: 50%; border: 3px solid #b92b3b; box-shadow: 0 4px 15px rgba(0,0,0,0.25);">
+        </div>
+        <h3 class="cursive-title" style="font-size: 2.2rem; text-align: center; margin-bottom: 15px;">Happy Birthday, Anushka Baby!</h3>
+        <p class="handwritten-text" style="font-size: 1.4rem; line-height: 1.6; color: #44181f; text-align: center;">
+          Every second with you is a gift I cherish with all my heart.<br>
+          Thank you for being my happiest thought, my biggest smile, and my forever favorite person.<br><br>
+          I hope this birthday brings you as much magic and endless happiness as you bring into my life every single day!
+        </p>
+        <div style="text-align: center; margin-top: 20px;">
+          <span class="cursive-title" style="font-size: 1.8rem; color: #8b1524;">With all my love, forever & always ❤️</span>
+        </div>
       </div>
     </div>
   </div>
 
   <script src="js/music.js"></script>
+  <script src="js/seamless.js"></script>
   <script src="js/confetti.js"></script>
   <script>
+    window.openLetterModal = function() {
+      const modal = document.getElementById('letterModal');
+      if (modal) modal.classList.add('active');
+    };
+
+    window.closeLetterModal = function() {
+      const modal = document.getElementById('letterModal');
+      if (modal) modal.classList.remove('active');
+    };
+
     function togglePlayMusic() {
       if (window.BdayMusic) {
         window.BdayMusic.toggle();

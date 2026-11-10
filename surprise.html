@@ -80,31 +80,34 @@
       </div>
       <a href="question.html" class="nav-link">Next →</a>
     </div>
-  </div>
 
-  <!-- Modal for Locket Zoom -->
-  <div class="modal-overlay" id="locketModal" onclick="closeLocketModal()">
-    <div class="modal-letter" style="max-width: 480px; text-align: center;" onclick="event.stopPropagation();">
-      <button class="close-modal-btn" onclick="closeLocketModal()">×</button>
-      <h3 class="cursive-title" style="font-size: 2rem; color: #8b1524; margin-bottom: 12px;">Kept In My Heart</h3>
-      <div style="display: flex; gap: 12px; justify-content: center; margin: 15px 0;">
-        <img src="assets/ourPictures/photo1.jpeg" alt="Us" style="width: 48%; height: 200px; object-fit: cover; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.25);">
-        <img src="assets/ourPictures/photo2.jpeg" alt="Us" style="width: 48%; height: 200px; object-fit: cover; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.25);">
+    <!-- Modal for Locket Zoom (Inside page-container) -->
+    <div class="modal-overlay" id="locketModal" onclick="closeLocketModal()">
+      <div class="modal-letter" style="max-width: 480px; text-align: center;" onclick="event.stopPropagation();">
+        <button class="close-modal-btn" onclick="closeLocketModal()">×</button>
+        <h3 class="cursive-title" style="font-size: 2rem; color: #8b1524; margin-bottom: 12px;">Kept In My Heart</h3>
+        <div style="display: flex; gap: 12px; justify-content: center; margin: 15px 0;">
+          <img src="assets/ourPictures/photo1.jpeg" alt="Us" style="width: 48%; height: 200px; object-fit: cover; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.25);">
+          <img src="assets/ourPictures/photo2.jpeg" alt="Us" style="width: 48%; height: 200px; object-fit: cover; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.25);">
+        </div>
+        <p class="handwritten-text" style="font-size: 1.35rem; color: #3b181e;">
+          "Every heartbeat whispers your name..."
+        </p>
       </div>
-      <p class="handwritten-text" style="font-size: 1.35rem; color: #3b181e;">
-        "Every heartbeat whispers your name..."
-      </p>
     </div>
   </div>
 
   <script src="js/music.js"></script>
+  <script src="js/seamless.js"></script>
   <script>
-    function openLocketModal() {
-      document.getElementById('locketModal').classList.add('active');
-    }
-    function closeLocketModal() {
-      document.getElementById('locketModal').classList.remove('active');
-    }
+    window.openLocketModal = function() {
+      const modal = document.getElementById('locketModal');
+      if (modal) modal.classList.add('active');
+    };
+    window.closeLocketModal = function() {
+      const modal = document.getElementById('locketModal');
+      if (modal) modal.classList.remove('active');
+    };
   </script>
 </body>
 </html>

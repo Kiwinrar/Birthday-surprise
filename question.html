@@ -59,6 +59,7 @@
   </div>
 
   <script src="js/music.js"></script>
+  <script src="js/seamless.js"></script>
   <script>
     let dodgeCount = 0;
     const funnyTexts = ["No", "Are you sure?", "Wait, what?!", "Try again 😜", "You can't say no!", "Click Yes ❤️"];
@@ -84,7 +85,11 @@
     }
 
     function chooseYes() {
-      window.location.href = 'yay.html';
+      if (window.navigateToPage) {
+        window.navigateToPage('yay.html');
+      } else {
+        window.location.href = 'yay.html';
+      }
     }
   </script>
 </body>

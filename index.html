@@ -45,10 +45,15 @@
   </div>
 
   <script src="js/music.js"></script>
+  <script src="js/seamless.js"></script>
   <script>
     function openCard() {
       if (window.BdayMusic) window.BdayMusic.play();
-      window.location.href = 'letter.html';
+      if (window.navigateToPage) {
+        window.navigateToPage('letter.html');
+      } else {
+        window.location.href = 'letter.html';
+      }
     }
   </script>
 </body>

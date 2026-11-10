@@ -987,37 +987,255 @@ html, body {
   z-index: 300;
 }
 
-/* Responsive adjustments */
+/* Responsive adjustments for Mobile & Tablets */
 @media (max-width: 768px) {
   .page-container {
-    padding: 60px 12px 70px 12px;
+    padding: 55px 10px 65px 10px;
+    min-height: 100vh;
+    justify-content: flex-start;
   }
+
   .scrapbook-card {
     min-height: auto;
-    padding: 30px 16px;
+    padding: 24px 12px;
+    max-width: 100%;
+    margin-top: 10px;
   }
+
   .scallop-frame {
-    padding: 25px 20px;
+    padding: 24px 16px;
+    width: 95%;
   }
+
+  .cursive-title.hero {
+    font-size: 2.5rem;
+  }
+
+  .cursive-title.sub {
+    font-size: 2rem;
+  }
+
+  .floral-corner.top-left { width: 90px; top: -5px; left: -5px; }
+  .floral-corner.top-right { width: 90px; top: -5px; right: -5px; }
+  .floral-corner.bottom-left { width: 90px; bottom: -5px; left: -5px; }
+  .floral-corner.bottom-right { width: 90px; bottom: -5px; right: -5px; }
+
+  /* Page 2: Responsive Envelope */
+  .letter-envelope-container {
+    width: 320px;
+    max-width: 95vw;
+    height: 300px;
+    margin-top: 10px;
+  }
+
+  .envelope-base {
+    height: 170px;
+  }
+
+  .envelope-pocket {
+    border-left: 160px solid #f2e7d3 !important;
+    border-right: 160px solid #f2e7d3 !important;
+    border-top: 90px solid transparent !important;
+  }
+
+  .envelope-flap {
+    top: 130px !important;
+    border-left: 160px solid transparent !important;
+    border-right: 160px solid transparent !important;
+    border-top: 90px solid #ead6be !important;
+  }
+
+  .letter-sheet {
+    width: 92%;
+    padding: 18px 12px;
+    bottom: 20px;
+  }
+
+  .letter-sheet h2 {
+    font-size: 1.8rem !important;
+    margin-bottom: 8px !important;
+  }
+
+  .letter-sheet p {
+    font-size: 1.15rem !important;
+    line-height: 1.4 !important;
+  }
+
+  .letter-envelope-container:hover .letter-sheet,
+  .letter-sheet.active {
+    transform: translateY(-80px);
+  }
+
+  /* Page 3: Surprise Postcard on Mobile */
+  .surprise-content {
+    gap: 18px;
+  }
+
+  .vintage-postcard {
+    width: 100%;
+    max-width: 340px;
+    padding: 18px 14px;
+  }
+
+  .vintage-postcard .handwritten-text {
+    font-size: 1.35rem;
+  }
+
+  /* Page 4: Question & Buttons */
+  .kraft-tag {
+    padding: 25px 18px;
+    width: 95vw;
+    max-width: 360px;
+  }
+
+  .btn-choice {
+    padding: 8px 26px;
+    font-size: 1.1rem;
+  }
+
+  /* Page 5: Bears Frame */
+  .bears-frame {
+    padding: 16px 14px;
+    width: 95vw;
+    max-width: 350px;
+  }
+
+  .bears-img {
+    width: 130px;
+    max-width: 40vw;
+  }
+
+  /* Page 6: Gift Box Hub */
   .hearts-grid {
-    gap: 16px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px 20px;
+    max-width: 320px;
   }
+
+  .heart-stamp-shape {
+    width: 90px;
+    height: 90px;
+  }
+
+  .heart-gift-label {
+    font-size: 0.85rem;
+    padding: 2px 8px;
+  }
+
+  /* Page 7: Scrapbook Collage on Mobile */
+  .scrapbook-layout {
+    gap: 14px !important;
+  }
+
+  .polaroid {
+    width: 135px !important;
+    padding: 6px 6px 20px 6px !important;
+  }
+
+  .polaroid img {
+    height: 95px !important;
+  }
+
+  .polaroid-caption {
+    font-size: 0.95rem !important;
+    margin-top: 4px !important;
+  }
+
+  .scrabble-tiles {
+    gap: 3px !important;
+    position: static !important;
+    margin-top: 10px !important;
+  }
+
+  .tile {
+    width: 26px !important;
+    height: 30px !important;
+    font-size: 1rem !important;
+  }
+
+  /* Page 8: Rose Bouquet on Mobile */
+  .bouquet-scene {
+    flex-direction: column !important;
+    min-height: auto;
+  }
+
+  .bouquet-center img {
+    max-width: 270px !important;
+  }
+
   .compliment-pill {
     position: static !important;
-    margin: 6px;
+    margin: 4px;
     display: inline-block;
+    font-size: 1.05rem !important;
+    padding: 5px 12px !important;
   }
-  .bouquet-scene {
-    flex-direction: column;
+
+  /* Page 9: MEMORIES.HTML MOBILE FIX */
+  .bg-split {
+    background: radial-gradient(circle at 50% 30%, #5c101a 0%, #35040a 80%) !important;
   }
+
+  .bg-split::before {
+    display: none !important;
+  }
+
   .memories-scene {
-    flex-direction: column;
+    flex-direction: column !important;
+    align-items: center !important;
+    width: 100% !important;
+    gap: 20px !important;
   }
+
+  .turntable-card {
+    max-width: 320px !important;
+    width: 100% !important;
+    align-items: center !important;
+  }
+
+  .vinyl-large {
+    width: 120px !important;
+    height: 120px !important;
+  }
+
+  /* Mobile Horizontal Photobooth Film Strip */
+  .film-strip {
+    flex-direction: row !important;
+    width: 95% !important;
+    max-width: 340px !important;
+    overflow-x: auto;
+    border-left: none !important;
+    border-right: none !important;
+    border-top: 4px dashed #fff !important;
+    border-bottom: 4px dashed #fff !important;
+    padding: 6px 4px !important;
+    justify-content: center !important;
+    gap: 6px !important;
+  }
+
+  .film-frame {
+    width: 68px !important;
+    height: 55px !important;
+    flex-shrink: 0;
+  }
+
+  /* Page 10: Music Player Card on Mobile */
+  .music-player-card {
+    padding: 16px 12px;
+    max-width: 95vw;
+  }
+
+  .player-video-preview {
+    height: 180px;
+  }
+
+  /* Bottom Navigation on Mobile */
   .bottom-nav {
-    bottom: 10px;
+    bottom: 8px;
     padding: 6px 14px;
-    gap: 10px;
+    gap: 12px;
   }
+
   .nav-dots {
     display: none;
   }
